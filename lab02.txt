@@ -1,0 +1,71 @@
+darina@MacBook-Pro ~ % psql -h localhost -p 5432 -U postgres -d postgres
+Password for user postgres:
+psql (14.19 (Homebrew), server 17.6)
+WARNING: psql major version 14, server major version 17.
+         Some psql features might not work.
+Type "help" for help.
+
+postgres=# CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    name VARCHAR(100),
+    name VARCHAR(100)
+);
+ERROR:  column "name" specified more than once
+postgres=# CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    faculty VARCHAR(100)
+);
+CREATE TABLE
+postgres=# INSERT INTO students (name, email, faculty) VALUES ('Darina', 'bd12428@auca.kg', 'com-25');
+INSERT 0 1
+postgres=# INSERT INTO students (name, email, faculty) VALUES ('ELD', 'se12823@auca.kg', 'com-25'), ('Atai', 'na10293@auca.kg', 'com-27.5');
+INSERT 0 2
+postgres=# SELECT * FROM students;
+ id |  name  |      email      | faculty
+----+--------+-----------------+----------
+  1 | Darina | bd12428@auca.kg | com-25
+  2 | ELD    | se12823@auca.kg | com-25
+  3 | Atai   | na10293@auca.kg | com-27.5
+(3 rows)
+
+postgres=# SELECT name, email FROM students WHERE faculty = 'com-25';
+  name  |      email
+--------+-----------------
+ Darina | bd12428@auca.kg
+ ELD    | se12823@auca.kg
+(2 rows)
+
+postgres=# SELECT id, faculty FROM students;
+ id | faculty
+----+----------
+  1 | com-25
+  2 | com-25
+  3 | com-27.5
+(3 rows)
+
+postgres=# SELECT name, email FROM students WHERE name = 'ELD';
+ name |      email
+------+-----------------
+ ELD  | se12823@auca.kg
+(1 row)
+
+postgres=# SELECT name, email FROM students ORDER BY name;
+  name  |      email
+--------+-----------------
+ Atai   | na10293@auca.kg
+ Darina | bd12428@auca.kg
+ ELD    | se12823@auca.kg
+(3 rows)
+
+postgres=# SELECT name, email FROM students LIMIT 2;
+  name  |      email
+--------+-----------------
+ Darina | bd12428@auca.kg
+ ELD    | se12823@auca.kg
+(2 rows)
+
+postgres=# \q
+darina@MacBook-Pro ~ %

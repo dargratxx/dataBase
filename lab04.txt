@@ -1,0 +1,51 @@
+darina@MacBook-Pro ~ % psql -h localhost -p 5432 -U postgres -d postgres
+Password for user postgres:
+psql (14.19 (Homebrew), server 17.6)
+WARNING: psql major version 14, server major version 17.
+         Some psql features might not work.
+Type "help" for help.
+
+postgres=# CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    faculty VARCHAR(100)
+);
+CREATE TABLE
+postgres=# DROP TABLE IF EXISTS students;
+DROP TABLE
+postgres=# CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    faculty VARCHAR(100)
+);
+CREATE TABLE
+postgres=# ALTER TABLE students
+postgres-# ADD COLUMN date_of_birth DATE;
+ALTER TABLE
+postgres=# ALTER TABLE students
+postgres-# DROP COLUMN email;
+ALTER TABLE
+postgres=# SELECT * FROM students;
+ student_id | first_name | last_name | faculty | date_of_birth
+------------+------------+-----------+---------+---------------
+(0 rows)
+postgres=# ALTER TABLE students
+ALTER COLUMN first_name TYPE TEXT;
+ALTER TABLE
+postgres=# ALTER TABLE students
+ADD CONSTRAINT unique_student_first_name UNIQUE (first_name);
+ALTER TABLE
+postgres=# ALTER TABLE students
+RENAME COLUMN faculty TO faculty_group;
+ALTER TABLE
+postgres=# ALTER TABLE students
+RENAME TO students_uni;
+ALTER TABLE
+postgres=# DROP TABLE students_uni;
+DROP TABLE
+postgres=# \q
+darina@MacBook-Pro ~ %

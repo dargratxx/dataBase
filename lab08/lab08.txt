@@ -1,0 +1,30 @@
+postgres=# \dt
+             List of relations
+ Schema |     Name      | Type  |  Owner
+--------+---------------+-------+----------
+ public | authors       | table | postgres
+ public | book_authors  | table | postgres
+ public | books         | table | postgres
+ public | coffee        | table | postgres
+ public | coffee_houses | table | postgres
+ public | departments   | table | postgres
+ public | loans         | table | postgres
+ public | members       | table | postgres
+ public | students      | table | postgres
+ public | students_bad  | table | postgres
+(10 rows)
+
+postgres=# \d coffee_houses
+                                     Table "public.coffee_houses"
+  Column  |          Type          | Collation | Nullable |                  Default
+----------+------------------------+-----------+----------+-------------------------------------------
+ id       | integer                |           | not null | nextval('coffee_houses_id_seq'::regclass)
+ coffee   | integer                |           |          |
+ merch    | integer                |           |          |
+ store_id | integer                |           | not null |
+ total    | integer                |           |          |
+ city     | character varying(255) |           |          |
+Indexes:
+    "coffee_houses_pkey" PRIMARY KEY, btree (id)
+
+postgres=#

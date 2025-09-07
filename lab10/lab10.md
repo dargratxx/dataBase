@@ -44,19 +44,33 @@ SELECT customer_name
 FROM customers
 WHERE customer_name LIKE 'Bra%';
 ```
-![](data-1757275613617.csv)
+```csv
+"customer_name"
+"Brad Pitt"
+"Brandon Lee"
+```
 ```sql
 SELECT product_name
 FROM products
 WHERE product_name LIKE '%berry';
 ```
-![](data-1757275724276.csv)
+```csv
+"product_name"
+"Strawberry"
+"Blueberry"
+"Blackberry"
+```
 ```sql
 SELECT email
 FROM users
 WHERE email ILIKE '%@gmail.com';
 ```
-![](data-1757275784204.csv)
+```csv
+"email"
+"john.doe@gmail.com"
+"brad.pitt@gmail.com"
+"brandon.lee@GMAIL.com"
+```
 Regular expressions
 ```sql
 DROP TABLE IF EXISTS employees;
@@ -95,13 +109,26 @@ SELECT name
 FROM employees
 WHERE name ~ '^[AB]';
 ```
-![](lab10:5.csv)
+```csv
+"name"
+"Alice Johnson"
+"Bob Smith"
+"Andrew Blake"
+"Barbara White"
+```
 ```sql
 SELECT email
 FROM users
 WHERE email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$';
 ```
-![](lab10:6.csv)
+```csv
+"email"
+"john.doe@gmail.com"
+"alice@yahoo.com"
+"brad.pitt@gmail.com"
+"user123@outlook.com"
+"brandon.lee@gmail.com"
+```
 
 
 

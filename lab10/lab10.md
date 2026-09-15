@@ -54,11 +54,13 @@ SELECT product_name
 FROM products
 WHERE product_name LIKE '%berry';
 ```
-```csv
-"product_name"
-"Strawberry"
-"Blueberry"
-"Blackberry"
+```bash
+cd ~/Desktop
+mkdir info_sec
+cd info_sec
+touch my_file.txt
+chmod 777 my_file.txt
+cat my_file.txt
 ```
 ```sql
 SELECT email
